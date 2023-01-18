@@ -1,3 +1,5 @@
 export interface IProps {
-  content: string;
+  content?: string;
+  to?: string;
+  WebTitle?: string;
 }
