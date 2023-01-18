@@ -19,6 +19,7 @@ export default createGlobalStyle`
   body, input, button {
     font-family: 'Karla', sans-serif;
     
+    
   }
 
   button {
