@@ -1,24 +1,35 @@
 import Input from '../input';
 import { Container, Form } from './style';
 import { useForm } from 'react-hook-form';
+import Link from '../link';
+// import api from '../../services/api';
+// import { IResponse } from '../../interfaces';
 
 const Inform = () => {
   const { register, handleSubmit } = useForm();
 
-  const handleSection = (newTransaction: any) => {
-    console.log(newTransaction);
+  const onSubmit = async (data: any) => {
+    // const jsonData = JSON.stringify(data);
+    // const res = await api
+    //   .post('', {
+    //     header: 'content-type: application/json',
+    //     data: jsonData,
+    //   })
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.log(err));
   };
 
   return (
     <Container className="container-inform">
       <h1>Simulation of payment</h1>
-      <Form onChange={() => handleSubmit(handleSection)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           inputFor="value"
           description="Enter the amout to pay"
           placeExemplo="$ 1.000,00"
           inputType="number"
-          {...register('amount')}
+          register={register}
+          object="amount"
         ></Input>
         <div className="select installments">
           <label htmlFor="installments">How many installments</label>
@@ -41,8 +52,10 @@ const Inform = () => {
           inputFor="mdr"
           description="Enter the MDR percentage"
           placeExemplo="Ex : 3%"
-          {...register('mdr')}
+          register={register}
+          object="mdr"
         ></Input>
+        <Link content="send" buttonType="submit"></Link>
       </Form>
     </Container>
   );

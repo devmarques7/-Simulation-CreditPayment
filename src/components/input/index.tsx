@@ -6,14 +6,16 @@ const Input = ({
   placeExemplo,
   description,
   inputType,
+  object,
+  register,
 }: IInputProps) => {
   return (
     <Container>
       <label htmlFor={inputFor}>{description}</label>
       <input
-        name={inputFor}
         placeholder={placeExemplo}
         type={inputType}
+        {...register!(object!)}
       ></input>
     </Container>
   );

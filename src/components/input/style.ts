@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
 
-  width: 80%;
+  width: 100%;
   height: 50px;
 
   label {
@@ -13,7 +13,7 @@ export const Container = styled.div`
   }
 
   input {
-    width: 60%;
+    width: 100%;
 
     margin-top: 5px;
     padding: 10px;

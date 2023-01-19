@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
 
-  width: 80%;
-  height: 50%;
+  width: 50vw;
+  height: 60%;
 
   h1 {
     color: var(--color-dark);
@@ -19,10 +19,10 @@ export const Container = styled.div`
 export const Form = styled.form`
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 
-  width: 50%;
+  width: 70%;
   height: 100%;
 
   .select {
@@ -30,7 +30,7 @@ export const Form = styled.form`
     justify-content: space-between;
     flex-direction: column;
 
-    width: 80%;
+    width: 100%;
     height: 50px;
 
     label {
@@ -38,7 +38,7 @@ export const Form = styled.form`
     }
 
     #installments {
-      width: 60%;
+      width: 100%;
 
       margin-top: 5px;
       padding: 10px;
