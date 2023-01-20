@@ -30,17 +30,15 @@ export const Container = styled.div`
 
     .notifications {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       flex-direction: column;
 
       width: 50vw;
-      height: 80%;
+      max-width: 524px;
+      height: 75%;
 
       h1 {
         display: flex;
-        position: absolute;
-
-        top: 235px;
 
         color: var(--color-dark);
 
@@ -52,8 +50,8 @@ export const Container = styled.div`
         justify-content: center;
         flex-direction: column;
 
-        width: 50vw;
-        height: 50%;
+        width: 100%;
+        height: 80%;
 
         border: 1px solid var(--color-dark);
         border-radius: 10px;

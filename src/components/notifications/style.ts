@@ -8,6 +8,7 @@ export const Container = styled.ul`
   padding: 10px 0 10px 0;
 
   width: 100%;
+
   height: 100%;
 
   background: var(--color-light);

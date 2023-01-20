@@ -1,22 +1,44 @@
+import axios from 'axios';
+import Link from '../link';
 import Input from '../input';
+
+import { useContext } from 'react';
 import { Container, Form } from './style';
 import { useForm } from 'react-hook-form';
-import Link from '../link';
-// import api from '../../services/api';
-// import { IResponse } from '../../interfaces';
+import { AppContext } from '../../context';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { IResponse, ISubmitData } from '../../interfaces';
 
 const Inform = () => {
-  const { register, handleSubmit } = useForm();
+  let paySchema = yup.object().shape({
+    amount: yup.number().required(),
+    installments: yup.number().required(),
+    mdr: yup.number().required(),
+  });
 
-  const onSubmit = async (data: any) => {
-    // const jsonData = JSON.stringify(data);
-    // const res = await api
-    //   .post('', {
-    //     header: 'content-type: application/json',
-    //     data: jsonData,
-    //   })
-    //   .then((response) => console.log(response))
-    //   .catch((err) => console.log(err));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ISubmitData>({
+    resolver: yupResolver(paySchema),
+  });
+  const { handleAddNote, toggleShow, setMessage, handleData } =
+    useContext(AppContext);
+
+  const onSubmit = async (data: ISubmitData) => {
+    const newData: IResponse = handleData(data);
+    await axios({
+      method: 'post',
+      url: 'https://frontend-challenge-7bu3nxh76a-uc.a.run.app',
+      data: newData,
+    })
+      .then((res) => handleAddNote(res.data))
+      .catch((err) => {
+        toggleShow(true);
+        setMessage(err.response.data);
+      });
   };
 
   return (
@@ -31,7 +53,7 @@ const Inform = () => {
           register={register}
           object="amount"
         ></Input>
-        <div className="select installments">
+        <div className="select-installments">
           <label htmlFor="installments">How many installments</label>
           <select id="installments" {...register('installments')}>
             <option value="1">1</option>
@@ -52,9 +74,44 @@ const Inform = () => {
           inputFor="mdr"
           description="Enter the MDR percentage"
           placeExemplo="Ex : 3%"
+          inputType="number"
           register={register}
           object="mdr"
         ></Input>
+        <div className="select-day">
+          <label htmlFor="days" className="label">
+            How many days
+          </label>
+          <div className="container-select">
+            <select id="days" {...register('one')}>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="60">60</option>
+              <option value="75">75</option>
+              <option value="90">90</option>
+            </select>
+            <select id="days" {...register('two')}>
+              <option value="0">0</option>
+              <option value="15">15</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="60">60</option>
+              <option value="75">75</option>
+              <option value="90">90</option>
+            </select>
+            <select id="days" {...register('three')}>
+              <option value="0">0</option>
+              <option value="30">30</option>
+              <option value="45">45</option>
+              <option value="60">60</option>
+              <option value="75">75</option>
+              <option value="90">90</option>
+            </select>
+          </div>
+        </div>
         <Link content="send" buttonType="submit"></Link>
       </Form>
     </Container>

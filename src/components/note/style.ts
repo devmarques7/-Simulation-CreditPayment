@@ -16,6 +16,10 @@ export const Container = styled.li`
 
   overflow-y: hidden;
 
+  .test {
+    display: none;
+  }
+
   .mark {
     background-color: black;
 
@@ -25,7 +29,7 @@ export const Container = styled.li`
     margin-right: 45px;
   }
 
-  .note {
+  .note-description {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -88,8 +92,11 @@ export const Container = styled.li`
   :hover {
     min-height: 120px;
 
-    transition: all 1s ease;
-    -webkit-transition: all 1s ease;
+    -webkit-transition: all 5s ease;
+    -moz-transition: all 5s ease;
+    -ms-transition: all 5s ease;
+    -o-transition: all 5s ease;
+    transition: all 5s ease;
 
     background-color: rgb(128, 0, 0, 0.2);
 
