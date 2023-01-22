@@ -1,7 +1,15 @@
+import { useContext, useEffect } from 'react';
 import Link from '../../components/link';
+import { AppContext } from '../../context';
 import { Container } from './style';
 
 const LandingPage = () => {
+  const { setNotes } = useContext(AppContext);
+
+  useEffect(() => {
+    setNotes([]);
+  });
+
   return (
     <Container>
       <div className="description">

@@ -34,7 +34,9 @@ const Inform = () => {
       url: 'https://frontend-challenge-7bu3nxh76a-uc.a.run.app',
       data: newData,
     })
-      .then((res) => handleAddNote(res.data))
+      .then((res) => {
+        handleAddNote(res.data);
+      })
       .catch((err) => {
         toggleShow(true);
         setMessage(err.response.data);

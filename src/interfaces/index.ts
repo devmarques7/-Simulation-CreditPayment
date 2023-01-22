@@ -13,7 +13,6 @@ export interface INoteValue {
   value_2: number | undefined;
   value_3: number | undefined;
   value_4?: number | undefined;
-  keyValue: number;
 }
 
 export interface INote {
@@ -62,6 +61,4 @@ export interface IAppProvider {
   toggleShow: React.Dispatch<React.SetStateAction<boolean>>;
   setMessage: React.Dispatch<React.SetStateAction<string>>;
   handleData: (data: ISubmitData) => IResponse;
-  setCustom: React.Dispatch<React.SetStateAction<boolean>>;
-  custom: boolean;
 }
