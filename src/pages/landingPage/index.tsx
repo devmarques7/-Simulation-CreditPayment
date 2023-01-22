@@ -1,4 +1,4 @@
-import Button from '../../components/button';
+import Link from '../../components/link';
 import { Container } from './style';
 
 const LandingPage = () => {
@@ -12,7 +12,7 @@ const LandingPage = () => {
           <h1>Better, Faster, Smart People</h1>
         </div>
       </div>
-      <Button content="Get Started" />
+      <Link content="Get Started" to="/dashboard" />
     </Container>
   );
 };

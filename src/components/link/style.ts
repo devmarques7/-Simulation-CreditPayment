@@ -9,6 +9,7 @@ export const Container = styled.button`
   padding: 25px;
 
   width: 80%;
+  max-width: 800px;
 
   background: var(--color-light);
 

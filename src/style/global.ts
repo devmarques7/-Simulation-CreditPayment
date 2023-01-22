@@ -6,6 +6,7 @@ export default createGlobalStyle`
     --color-background:rgb(42, 72, 88);
     --color-light: #fff;
     --color-dark: #000;
+    --color-remove: #B02E2E;
   }
 
 
@@ -18,6 +19,7 @@ export default createGlobalStyle`
 
   body, input, button {
     font-family: 'Karla', sans-serif;
+    
     
   }
 

@@ -2,11 +2,13 @@ import { IProps } from '../../interfaces';
 import { Container } from './style';
 import { useNavigate } from 'react-router-dom';
 
-const Button = ({ content }: IProps) => {
+const Link = ({ content, to, buttonType }: IProps) => {
   const navigate = useNavigate();
   return (
-    <Container onClick={() => navigate('/dashboard')}>{content}</Container>
+    <Container type={buttonType} onClick={() => navigate(to!)}>
+      {content}
+    </Container>
   );
 };
 
-export default Button;
+export default Link;
