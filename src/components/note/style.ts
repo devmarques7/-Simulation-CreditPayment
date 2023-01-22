@@ -70,7 +70,7 @@ export const Container = styled.li`
         justify-content: space-between;
         flex-direction: column;
 
-        width: 92px;
+        width: 122px;
         height: 100%;
         .day {
           opacity: 50%;
@@ -92,11 +92,11 @@ export const Container = styled.li`
   :hover {
     min-height: 120px;
 
-    -webkit-transition: all 5s ease;
-    -moz-transition: all 5s ease;
-    -ms-transition: all 5s ease;
-    -o-transition: all 5s ease;
-    transition: all 5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 
     background-color: rgb(128, 0, 0, 0.2);
 

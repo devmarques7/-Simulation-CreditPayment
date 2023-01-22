@@ -14,7 +14,6 @@ const AppProvider = ({ children }: IProvider) => {
   const [show, toggleShow] = useState(false);
   const [ErrMessage, setMessage] = useState('');
   const [paySchedules, setpaySchedule] = useState<IResponse>({} as IResponse);
-  const [custom, setCustom] = useState(false);
 
   const handleAddNote = (newNote: INote) => {
     setNotes([...notes, newNote]);
@@ -44,7 +43,9 @@ const AppProvider = ({ children }: IProvider) => {
     return newData;
   };
 
-  useEffect(() => {}, [notes]);
+  useEffect(() => {
+    setNotes(notes);
+  }, [notes]);
 
   return (
     <AppContext.Provider
@@ -58,8 +59,6 @@ const AppProvider = ({ children }: IProvider) => {
         setMessage,
         handleData,
         paySchedules,
-        setCustom,
-        custom,
       }}
     >
       {children}
